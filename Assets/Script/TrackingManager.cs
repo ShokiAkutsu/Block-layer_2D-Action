@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class TrackingManager : MonoBehaviour
 {
 	[SerializeField] GameObject player;
+	[SerializeField] float _posZ = -10f;
 	Vector3 prePlayerPos;
 
 	void Update()
@@ -16,7 +17,7 @@ public class CameraManager : MonoBehaviour
 				playerX = -5;
 			}
 
-			transform.position = new Vector3(playerX + 5, 0, -10);
+			transform.position = new Vector3(playerX + 5, 0, _posZ);
 			prePlayerPos = player.transform.position;
 		}
 	}
