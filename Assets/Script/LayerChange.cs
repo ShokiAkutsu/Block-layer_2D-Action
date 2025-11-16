@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class LayerChange : MonoBehaviour
 {
     TilemapRenderer _renderer;
-    string _layerNameBack = "StageA";
+	string _layerNameBack = "StageA";
     string _layerNameFlont = "StageB";
 	//bool _isChange = true; // Playerと重なるとき、変更できないようにする
 
@@ -12,7 +12,7 @@ public class LayerChange : MonoBehaviour
     {
 		_renderer = GetComponent<TilemapRenderer>();
 
-		if (_renderer)
+		if (_renderer) // レイヤー設定を負の値に設定する
 		{
 			_renderer.sortingOrder = -1;
 			Debug.Log($"Tilemap RendererのOrder in Layerを {_renderer.sortingOrder} に変更しました。");
@@ -21,6 +21,8 @@ public class LayerChange : MonoBehaviour
 		{
 			Debug.LogError("このゲームオブジェクトに TilemapRenderer が見つかりません。");
 		}
+
+		gameObject.layer = LayerMask.NameToLayer(_layerNameBack); // レイヤー設定を負の値に設定する
 	}
 
 	private void OnMouseDown()
